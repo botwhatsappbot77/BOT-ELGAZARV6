@@ -518,7 +518,7 @@ if (isCreator) return m.reply(bvl)
 			        }
 			    })
 			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 منع السب 」\`\`\`\n\n@${m.sender.split("@")[0]} تم طرده بسبب السب في الجروب`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
+ElgazarBot.sendMessage(from, {text:`\`\`\`「 منع السب 」\`\`\`\n\n@${m.sender.split("@")[0]} تم طرده بسبب السب في  المجموعه`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
 }
 //antilink youtube video by xeon
 if (AntiLinkYoutubeVid)
@@ -672,7 +672,7 @@ ElgazarBot.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n
 if (AntiLinkAll)
    if (budy.includes("https://")){
 if (!isBotAdmins) return
-bvl = `\`\`\`「 منع الروابط 」\`\`\`\n\nاوه انت مشرف لا تخف يمكنك ارسال روابط كما تشاء😇`
+bvl = `\`\`\`「 منع الروابط 」\`\`\`\n\nاوه انت مشرف لا تخف يمكنك ارسال روابط كما تشاء😇 بس الاعضاا ممنوع ارسال اي رابط`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
@@ -688,11 +688,11 @@ if (isCreator) return m.reply(bvl)
 			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 ElgazarBot.sendMessage(from, {text:`\`\`\`「 منع الروابط 」\`\`\`\n\n@${m.sender.split("@")[0]} تم اكتشاف رابط سيتم طردك في خلال 0 ثانيه 
  
-لقد حظرتك من الروابط لماذا لم تسمع الكلام.  
+لقد حظرتك من الروابط لماذا لم تسمع الكلام.  وقد اعذر من انذر لتواصل لفك الحظر +967770125159
  
  
  
-تمت البرمجه بواسطه: ELGAZAR ALWAZER`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+تمت البرمجه بواسطه: عبدالله عبده الحداد`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -905,7 +905,7 @@ ${isWin ? `@${winner.split('@')[0]} لقد فزت✨` : isTie ? `انتهت ال
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
 	    ElgazarBot.sendText(roof.asal, `_*النتيجه الان*_${tie ? '\nSERIES' : ''}
-
+     
 @${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` لقد ربح \n` : ` وانت خسرت \n`}
 @${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` لقد ربح \n` : ` وانت خسرت  \n`}
 `.trim(), m, { mentions: [roof.p, roof.p2] })
@@ -1221,7 +1221,7 @@ break
             break  
             case 'join': case 'ادخل': case 'انضم': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw 'اين رابط الجروب!'
+                if (!text) throw 'اين رابط  المجموعه!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'الرابط خطأ!'
                 m.reply(mess.wait)
                 let result = args[0].split('https://chat.whatsapp.com/')[1]
@@ -1522,15 +1522,15 @@ case 'group': case 'جروب': {
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (args[0] === 'قفل'){
-                    await ElgazarBot.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*تم قفل الجروب*`)).catch((err) => m.reply(jsonformat(err)))
+                    await ElgazarBot.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*تم قفل  المجموعه*`)).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'فتح'){
-                    await ElgazarBot.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*تم فتح الجروب*`)).catch((err) => m.reply(jsonformat(err)))
+                    await ElgazarBot.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*تم فتح  المجموعه*`)).catch((err) => m.reply(jsonformat(err)))
                 } else {
                 let buttons = [
-                        { buttonId: 'جروب فتح', buttonText: { displayText: 'فتح' }, type: 1 },
-                        { buttonId: 'جروب قفل', buttonText: { displayText: 'قفل' }, type: 1 }
+                        { buttonId: 'المجموعه فتح', buttonText: { displayText: 'فتح' }, type: 1 },
+                        { buttonId: 'المجموعه قفل', buttonText: { displayText: 'قفل' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, `حاله الجروب`, botname, m)
+                    await ElgazarBot.sendButtonText(m.chat, buttons, `حاله  المجموعه`, botname, m)
 
              }
             }
@@ -1604,7 +1604,7 @@ break
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 let response = await ElgazarBot.groupInviteCode(m.chat)
-                ElgazarBot.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nلينك الجروب : ${groupMetadata.subject}`, m, { detectLink: true })
+                ElgazarBot.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nلينك  المجموعه : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
             case 'ephemeral': {
@@ -1796,7 +1796,7 @@ memek = await ElgazarBot.sendImageAsSticker(m.chat, meme, m, { packname: global.
 await fs.unlinkSync(memek)
 }
 break
-case 'لصوره': case 'toimg': case 'لصورة': {
+			case 'لصوره': case 'toimg': case 'لصورة': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `رد علي استيكر واكتب *${prefix + command}*`
                 m.reply(mess.wait)
@@ -2586,7 +2586,7 @@ maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-
   .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
-
+			
 case 'neonlight2':
 if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
@@ -3737,7 +3737,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 {
                 title: "CHANGE MENU BOT",
                 rows: [
-                {title: "Template Image", rowId: `setmenu templateImage`, description: `Change menu bot to Template Image`},
+                {title: "Template Image", rowId: `setmenu templateImage`, description: `Change menu bot to Template @Image`},
                 {title: "Template Video", rowId: `setmenu templateVideo`, description: `Change menu bot to Template Video`},
                 {title: "Template Gif", rowId: `setmenu templateGif`, description: `Change menu bot to Template Gif`},
                 {title: "Template Message", rowId: `setmenu templateMessage`, description: `Change menu bot to Template Message`}
@@ -4188,14 +4188,14 @@ if (args[0] === "on") {
 if (AntiLinkTwitter) return m.reply('نشط بالفعل')
 ntilinkall.push(from)
 fs.writeFileSync('./database/antilinkall.json', JSON.stringify(ntilinkall))
-m.reply('النجاح في تشغيل مضاد الروابط في هذا  الجروب')
+m.reply('النجاح في تشغيل مضاد الروابط في هذا   المجموعه')
 var groupe = await ElgazarBot.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-ElgazarBot.sendMessage(from, {text: `\`\`\`「 ⚠️تحذير⚠️ 」\`\`\`\n\nتحذير للاعضاء الغير مشرفين اذا لم تكن مشرف وارسلت اي روابط سوف يتم طردك من الجروب`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ElgazarBot.sendMessage(from, {text: `\`\`\`「 ⚠️تحذير⚠️ 」\`\`\`\n\nتحذير للاعضاء الغير مشرفين اذا لم تكن مشرف وارسلت اي روابط سوف يتم طردك من  المجموعه`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!AntiLinkAll) return m.reply('معطل بالفعل')
 let off = ntilinkall.indexOf(from)
@@ -4273,7 +4273,7 @@ m.reply('Success in turning off auto reply in this group')
   }
   }
   break
-case 'antiwame': {
+			case 'antiwame': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
 if (!isAdmins && !isCreator) return m.reply(mess.admin)
@@ -4389,12 +4389,12 @@ case 'dare': case 'تويت':
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هي عيوب سورس الجزار ؟ ", 
+"ما هي عيوب عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  ؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
 "اخر كتاب قرآته", 
-"ليه عبدالله محمد جدع؟ ", 
+"ليه عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  جدع؟ ", 
  "ليه الجزار جدع؟ ", 
 "افضل يوم ف حياتك", 
 "ليه مضيفتش كل جهاتك", 
@@ -4406,13 +4406,13 @@ case 'dare': case 'تويت':
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس الجزار ؟؟ ", 
+" هل يعجبك عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  ؟؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس الجزار ؟ ", 
+"اي رايك في عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  ؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " نسبه الندم عندك للي وثقت فيهم ؟", 
@@ -4623,7 +4623,7 @@ case 'dare': case 'تويت':
   "تتوقع إنك بتتزوج اللي تحبه؟ ",
   "ما هو أمنيتك؟ ",
   "وين تشوف نفسك بعد خمس سنوات؟ ",
-  "هل انت حرامي تويت بتعت عبدالله محمد؟ ",
+  "هل انت حرامي تويت بتعت عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ؟ ",
   "لو خيروك تقدم الزمن ولا ترجعه ورا؟ ",
   "لعبة قضيت وقتك فيه بالحجر المنزلي؟ ",
   "تحب تطق الميانة ولا ثقيل؟ ",
@@ -4631,7 +4631,7 @@ case 'dare': case 'تويت':
   "اول ماتصحى من النوم مين تكلمه؟ ",
   "عندك الشخص اللي يكتب لك كلام كثير وانت نايم؟ ",
   "قد قابلت شخص تحبه؟ وولد ولا بنت؟ ",
-   "هل انت تحب عبدالله محمد؟ ",
+   "هل انت تحب عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ؟ ",
 "اذا قفطت احد تحب تفضحه ولا تستره؟ ",
   "كلمة للشخص اللي يسب ويسطر؟ ",
   "آية من القران تؤمن فيه؟ ",
@@ -4643,7 +4643,7 @@ case 'dare': case 'تويت':
   "اذكر موقف ماتنساه بعمرك؟ ",
   "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
   "ألطف شخص مر عليك بحياتك؟ ",
-   "هل عبدالله محمد لطيف؟ ",
+   "هل عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  لطيف؟ ",
 "انت من الناس المؤدبة ولا نص نص؟ ",
   "كيف الصيد معاك هالأيام ؟ وسنارة ولاشبك؟ ",
   "لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا تكرشه؟ ",
@@ -4672,7 +4672,7 @@ case 'dare': case 'تويت':
   "انسان م تحب تتعامل معاه ابداً ؟ ",
   "شيء بسيط تحتفظ فيه؟ ",
   "فُرصه تتمنى لو أُتيحت لك ؟ ",
-   "لي عبدالله محمد ناك اليكس؟ ",
+   "لي عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  ناك اليكس؟ ",
   "شيء مستحيل ترفضه ؟. ",
   "لو زعلت بقوة وش بيرضيك ؟ ",
   "تنام بـ اي مكان ، ولا بس غرفتك ؟ ",
@@ -5391,7 +5391,9 @@ fs.writeFileSync('./database/autosticker.json', JSON.stringify(autosticker))
 m.reply('auto sticker deactivated')
 }
 break
-case 'antivirus': case 'antivirtex': {
+			
+	
+	case 'antivirus': case 'antivirtex': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
 if (!isAdmins && !isCreator) return m.reply(mess.admin)
@@ -6970,7 +6972,7 @@ ElgazarBot.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالا�
 					const taky = xeony[Math.floor(Math.random() * xeony.length)]
 					ElgazarBot.sendMessage(from, { text: `التحقق من الشخصيه : ${q}\nالاجابه : *${taky}*` }, { quoted: m })
 				     break
-                    case 'تتتتتتتتت':
+			                    case 'تتتتتتتتت':
   case 'greatcheck':
     case 'gaycheck':
       case 'cutecheck':
@@ -7039,7 +7041,7 @@ ElgazarBot.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالا�
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `هذا الشخص اكبر *${command}* في الجروب @${jodoh.split('@')[0]}`
+            let jawab = `هذا الشخص اكبر *${command}* في  المجموعه @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
             let buttons = [
                         { buttonId: 'oke', buttonText: { displayText: 'اتفق😂💔' }, type: 1 }
@@ -7174,12 +7176,12 @@ const reply = `
     break
 case 'السورس': case 'script': {
 teks = `⋆ تم تطوير وبرمجه هذا السورس •
-⋆ بواسطه عبدالله محمد •
-⋆ يمكنك التواصل مع المبرمج عبر التيلجرام ⤌⤈
- t.me/A_M_030
+⋆ بواسطه عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  •
+⋆ يمكنك التواصل مع المبرمج عبر واتساب ⤌⤈
+ https://api.whatsapp.com/send?phone=+967770125159
 تبعني عبر اليوتيوب ⤌⤈
-https://youtube.com/@ABDALLAH_MOHAMED
-واشترك وفعل الجرس وانتظر شروحات للبرمجه..🌍🔥`
+https://t.me/Abdallah_Abduh99
+ارجاا اشترك في قناتي التليجرام وانتظر شروحات للبرمجه..🌍🔥`
 let buttons = [
 {buttonId: `owner`, buttonText: {displayText: 'المطور👤'}, type: 1}
 ]
@@ -7191,8 +7193,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -7209,15 +7211,15 @@ teks = `• مرحبا ياروحي ⤌⤈
 • انا بوت واتس اسمي ⤌⤈
 𓆩 *${global.botname}* 𓆪
 • تم تطويري وبرمجتي •
-• بواسطه عبدالله محمد •
-• اذا كنت تريد صنع بوت مماثل لهذا •
-يجب عليك الانظمام لهذه القناه وسماع الشروحات لتنصيب بوت وتس مثل هذا البوت
+• بواسطه عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪  •
+• اذا كنت تريد بوت زي هاذا فلا تتردد في التواصل معي 
+اذا كنت تريد صنع بوت انت تتعلم كيف تصنع بوت فلا تتردد بتواصل معي وبسعر مناسب
  
-قناة برمجه الجزار للشروحات
-https://youtube.com/@ABDALLAH_MOHAMED
+ارجاا الاشتراك  في قناتي التليجرام 
+https://t.me/Abdallah_Abduh99
 
 لينك شاتي 
-https://api.whatsapp.com/send?phone=+201098906252`
+https://api.whatsapp.com/send?phone=+967770125159`
 let buttons = [
 {buttonId: `owner`, buttonText: {displayText: 'المطور👤'}, type: 1}
 ]
@@ -7229,8 +7231,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -7348,7 +7350,7 @@ if (!text) return m.reply('What sign?')
         break
 case 'خمن': case 'تخمين': case 'searchnumber':
 var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return m.reply(`اكتب الامر مثال: ${prefix + command} 201098906xxx`)
+        if (!inputnumber.includes('x')) return m.reply(`اكتب الامر مثال: ${prefix + command} +967770125159`)
         m.reply(`البحث عن حساب واتساب في نطاق معين...`)
         function countInstances(string, word) {
             return string.split(word).length - 1
@@ -7409,7 +7411,7 @@ break
 case 'pcbut':
             	
                 if (!isCreator) return m.reply(`${mess.owner}`)
-                    if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcbut 91xxxxxxxxxx`)
+                    if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcbut +967770125159`)
                  buttonvirus = [
                           {buttonId: 'xeon', buttonText: {displayText: xeonvirtex}, type: 1},
   {buttonId: 'xeon', buttonText: {displayText: xeonbutton}, type: 1},
@@ -7450,7 +7452,7 @@ break
 case 'pcvn':{
             	
                 if (!isCreator) return m.reply(`${mess.owner}`)
-if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcvn 91xxxxxxxxxx`)
+if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcvn 967770125159`)
 xeonvn = { 
         key: { 
             fromMe: false, 
@@ -7557,7 +7559,7 @@ break
 case 'pcslow': { 
            	
                 if (!isCreator) return m.reply(`${mess.owner}`)
-                if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcmass 91xxxxxxxxxx`)
+                if (!text) return reply(`${mess.attack}\nExample: ${prefix}pcmass 967770125159`)
              xeonyh1 = { 
                     key: { 
                         fromMe: false, 
@@ -8398,20 +8400,20 @@ case 'textshot': {
 
 /*case 'tqtt': 
 throw `Thanks me
-https://youtube.com/@YOUSSEF-ALSOLTN
+https://t.me/Abdallah_Abduh99
 
 
-201227179105
+
 
 
 YoUsSef Al SoLtAn
 
-https://www.instagram.com/youssef.alsoltan_
+https://api.whatsapp.com/send?phone=+967770125159
 `
 
 break*/
 
-case 'م1': case 'اوامر الاعضاء': {
+case '1اعضاء': case 'اوامر الاعضاء': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
@@ -8439,8 +8441,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8451,7 +8453,7 @@ ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
 
-case 'م2': case 'اوامر المالك': {
+case 'مالك2': case 'اوامر المالك': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
@@ -8470,7 +8472,7 @@ teks = `• مرحبا ياروحي ⤌⤈      
 ♚ حظر اي جروب من استخدام البوت 
 ꔹ━━━━━ꔹ
 ( .اخرج )
-♚ خروج البوت من الجروب 
+♚ خروج البوت من  المجموعه 
 ꔹ━━━━━ꔹ
 ( .انضم )
 ♚ ينضم البوت لجروب عبر الرابط
@@ -8482,7 +8484,7 @@ teks = `• مرحبا ياروحي ⤌⤈      
 ♚ الغاء البلوك عن الشخص 
 ꔹ━━━━━ꔹ
 ( .اذاعه )
-♚ عمل اذاعه لكل الجروبات في البوت
+♚ عمل اذاعه لكل  المجموعه في البوت
 ꔹ━━━━━ꔹ
 ( .جلب )
 ♚ يجلب لك ملفات سكريبت جيثب `
@@ -8497,8 +8499,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8509,11 +8511,11 @@ ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
 
-case 'م3': case 'اوامر الجروبات': {
+case '3مجموعه': case 'اوامر  المجموعه': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
-𓆩اليك قائمة باوامر الجروب𓆪
+𓆩اليك قائمة باوامر  المجموعه𓆪
 𓍹——————————𓍻
 ( .منشن )
 ♚ منشن جماعي لكل الاعضاء
@@ -8525,10 +8527,10 @@ teks = `• مرحبا ياروحي ⤌⤈      
 ♚ حذف رسالة البوت والاعضاء
  ꔹ━━━━━ꔹ
 ( .لينك )
-♚ جلب رابط الجروب 
+♚ جلب رابط  المجموعه 
 ꔹ━━━━━ꔹ
 ( .رستر )
-♚ رستارت لرابط الجروب 
+♚ رستارت لرابط  المجموعه 
  ꔹ━━━━━ꔹ
 ( .رفع )
 ♚ رفع عضو لمشرف 
@@ -8537,28 +8539,28 @@ teks = `• مرحبا ياروحي ⤌⤈      
 ♚ تنزيل عضو من المشرف 
 ꔹ━━━━━ꔹ
 ( .تغيرالاسم )
-♚ تغيير اسم الجروب 
+♚ تغيير اسم  المجموعه 
  ꔹ━━━━━ꔹ
 ( .تغيرالبايو )
-♚ تغيير وصف الجروب 
+♚ تغيير وصف  المجموعه 
 ꔹ━━━━━ꔹ
 ( .تغيرالصوره )
-♚ تغيير صورة الجروب 
+♚ تغيير صورة  المجموعه 
 ꔹ━━━━━ꔹ
 ( .جروب )
-♚ غلق وفتح الجروب 
+♚ غلق وفتح  المجموعه 
  ꔹ━━━━━ꔹ
 ( .طرد )
-♚ طرد شخص من الجروب 
+♚ طرد شخص من  المجموعه 
  ꔹ━━━━━ꔹ
 ( . اضافه )
 ♚ اضافه شخص للجروب
 ꔹ━━━━━ꔹ
 ( .الروابط )
-♚ منع ارسال الروابط في الجروب 
+♚ منع ارسال الروابط في  المجموعه 
 ꔹ━━━━━ꔹ
 ( .السب )
-♚ لمنع الشتايم والسب في الجروبات
+♚ لمنع الشتايم والسب في  المجموعه
 ꔹ━━━━━ꔹ
 ( .الحب )
 ♚ جلب نسبه حب الشخص لك
@@ -8582,8 +8584,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8594,7 +8596,7 @@ ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
 
-case 'م4': case 'اوامر التنزيل': {
+case '4تنزيل': case 'اوامر التنزيل': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
@@ -8649,8 +8651,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8661,7 +8663,7 @@ ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
 
-case 'م5': case 'اوامر التحويل': {
+case '5تحويل': case 'اوامر التحويل': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
@@ -8710,8 +8712,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8722,7 +8724,7 @@ ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
 
-case 'م6': case 'اوامر تغير الصوت': {
+case 'صوت6': case 'اوامر تغير الصوت': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
@@ -8762,8 +8764,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8773,8 +8775,8 @@ sourceUrl: "https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg"
 ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
-
-case 'م7': case 'اوامر التسليه': {
+			
+case 'تسليه7': case 'اوامر التسليه': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 𓍹——————————𓍻
@@ -8850,8 +8852,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8907,8 +8909,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -8919,11 +8921,14 @@ ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
             break
 
-case 'م8': case 'كل الاوامر': {
+case 'اوامر8': case 'كل الاوامر': {
 teks = `• مرحبا ياروحي ⤌⤈       
 𓆩 *${pushname}* 𓆪
 • انا بوت واتس اسمي ⤌⤈
 𓆩 *${global.BotName}* 𓆪
+ومطوري هو الكنج عبدالله الاسطوره اروع بوت في العالم 
+اذا كنت تريد بوت زي حقي هاذا يرجاء التواصل معي عبر حسابي الواتساب
+رابط حسابي https://api.whatsapp.com/send?phone=+967770125159
 • اعمل في الخاص وجروبات •
 • وظيفتي حماية جروبك •
 • تفضل اوامر البوت •
@@ -8950,7 +8955,7 @@ teks = `• مرحبا ياروحي ⤌⤈
 ♚ يجعل البوت خاص للمالك فقط
 ꔹ━━━━━ꔹ
 ( .اخرج )
-♚ خروج البوت من الجروب 
+♚ خروج البوت من  المجموعه 
 ꔹ━━━━━ꔹ
 ( .انضم )
 ♚ ينضم البوت لجروب عبر الرابط
@@ -8968,12 +8973,12 @@ teks = `• مرحبا ياروحي ⤌⤈
 ♚ جعل شخص عادي بالبوت وغير مميز
 ꔹ━━━━━ꔹ
 ( .اذاعه )
-♚ عمل اذاعه لكل الجروبات في البوت
+♚ عمل اذاعه لكل  المجموعه في البوت
 ꔹ━━━━━ꔹ
 ( .جلب )
 ♚ يجلب لك ملفات سكريبت جيثب 
 𓍹——————————𓍻
-𓆩اليك قائمة باوامر الجروب𓆪
+𓆩اليك قائمة باوامر  المجموعه𓆪
 𓍹——————————𓍻
 ( .منشن )
 ♚ منشن جماعي لكل الاعضاء
@@ -8988,10 +8993,10 @@ teks = `• مرحبا ياروحي ⤌⤈
 ♚ حذف رسالة البوت والاعضاء
  ꔹ━━━━━ꔹ
 ( .لينك )
-♚ جلب رابط الجروب 
+♚ جلب رابط  المجموعه 
 ꔹ━━━━━ꔹ
 ( .رستر )
-♚ رستارت لرابط الجروب 
+♚ رستارت لرابط  المجموعه 
  ꔹ━━━━━ꔹ
 ( .رفع )
 ♚ رفع عضو لمشرف 
@@ -9000,28 +9005,28 @@ teks = `• مرحبا ياروحي ⤌⤈
 ♚ تنزيل عضو من المشرف 
 ꔹ━━━━━ꔹ
 ( .تغيرالاسم )
-♚ تغيير اسم الجروب 
+♚ تغيير اسم  المجموعه 
  ꔹ━━━━━ꔹ
 ( .تغيرالبايو )
-♚ تغيير وصف الجروب 
+♚ تغيير وصف  المجموعه 
 ꔹ━━━━━ꔹ
 ( .تغيرالصوره )
-♚ تغيير صورة الجروب 
+♚ تغيير صورة  المجموعه 
 ꔹ━━━━━ꔹ
 ( .جروب )
-♚ غلق وفتح الجروب 
+♚ غلق وفتح  المجموعه 
  ꔹ━━━━━ꔹ
 ( .طرد )
-♚ طرد شخص من الجروب 
+♚ طرد شخص من  المجموعه 
  ꔹ━━━━━ꔹ
 ( . اضافه )
 ♚ اضافه شخص للجروب
 ꔹ━━━━━ꔹ
 ( .الروابط )
-♚ منع ارسال الروابط في الجروب
+♚ منع ارسال الروابط في  المجموعه
 ꔹ━━━━━ꔹ
 ( .السب )
-♚ لمنع الشتايم والسب في الجروبات
+♚ لمنع الشتايم والسب في  المجموعه
 ꔹ━━━━━ꔹ
 ( .الحب )
 ♚ جلب نسبه حب الشخص لك
@@ -9206,8 +9211,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
@@ -9225,21 +9230,21 @@ teks = `•╗ مرحبا ياعزيزي ⤌⤈
 𓆩 *${global.botname}* 𓆪
 •╣ اعمل في الخاص وجروبات
 •╣ وظيفتي حماية جروبك
-•╣ اكتب كلمه .الاوامر لمعرفه
+•╣ اكتب كلمه .menu لمعرفه
 •╣ اوامر البوت وطريقه الاستخدام
 •╣ مميزات البوت كثيره جدا 
 •╝ ويعمل بجودة فائقه وعاليه
 𓍹————————————𓍻
-𓆩قائمة اوامر سورس الجزار𓆪 
+𓆩قائمة اوامر عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 𓆪 
 𓍹————————————𓍻
-( .م1 ) ☞ اوامر الاعضاء
-( .م2 ) ☞ اوامر المالك
-( .م3 ) ☞  اوامر الجروبات
-( .م4 ) ☞ اوامر البحث وتنزيل
-( .م5 ) ☞ اوامر التحويل
-( .م6 ) ☞ اوامر تغيير الصوت
-( .م7 ) ☞ اوامر التسليه
-( .م8 ) ☞ لعرض جميع الاومر
+( .عضاء1 ) ☞ اوامر الاعضاء
+( .المالك2 ) ☞ اوامر المالك
+( .المجموعه3 ) ☞  اوامر  المجموعه
+( .تنزيل4 ) ☞ اوامر البحث وتنزيل
+( .تحويل5 ) ☞ اوامر التحويل
+( .الصوت6 ) ☞ اوامر تغيير الصوت
+( .التسليه7 ) ☞ اوامر التسليه
+( .جميع8 ) ☞ لعرض جميع الاومر
 .المميزات ☞ لعرض مميزات البوت
 .المطور ☞ لعرض مطور البوت
 .السورس ☞ لعرض المبرمج`
@@ -9254,8 +9259,8 @@ footer: `${botname}`,
 buttons: buttons,
 headerType: 4,
 contextInfo:{externalAdReply:{
-title:"ᴇʟɢᴀᴢᴀʀ ʙᴏт",
-body: "سورس الجزار", 
+title:"bot abdallah_abduh",
+body: "عـــبـــدالــلــه الــحــداد𓅮᭄ 🦅🇾🇪 ", 
 thumbnail: fs.readFileSync("XeonMedia/theme/cheemspic.jpg"),
 mediaType:1,
 mediaUrl: 'https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg',
